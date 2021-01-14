@@ -55,7 +55,7 @@
             <ul>
                 <li class="active"><a href="#hero"><i class="bx bx-home"></i> <span>Home</span></a></li>
                 <li><a href="#about"><i class="bx bx-ghost"></i> <span>Background</span></a></li>
-                <li><a href="#solve"><i class="bx bx-question-mark"></i> <span>Solve</span></a></li>
+                <li><a href="#solve"><i class="bx bx-brain"></i> <span>Solve</span></a></li>
                 <li><a href="#code"><i class="bx bx-code"></i> <span>Code</span></a></li>
                 <li><a class="nav-link" href="https://github.com/JaxHolliday/SOAF-Revamp" target="_blank"><i class="bx bxl-github"></i> <span>GitHub Repository</span></a></li>
                 <li><a class="nav-link" href="https://jackson-hollidays-portfolio.netlify.app/" target="_blank"><i class="bx bx-user"></i> <span>Portfolio</span></a></li>
@@ -96,11 +96,7 @@
                     </div>
                     
                     <div class="col-lg-8 pt-6 pt-lg-0 mr-auto content">
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                        
                         <h3>Description</h3>
                         <p class="font-italic">Given a list of numbers and a number K, return whether any two numbers from the list add up to K.</p>
                         <p class="font-italic">Example: given [10, 15, 3, 7] and K of 17, return true since 10 + 7 is 17.</p>
@@ -160,39 +156,46 @@ document.getElementById("btnSubmit").addEventListener("click", superScary);
 
 function superScary() {
     // Step 1: Get user Input
-    // Get the user Input
+
     let k = Number(document.getElementById("userInput").value);
-    // Getting Numbers to search thru (Min of 5 elements with max of 20). Determines ele. to put thru array
+    // Get the user Input
     let searchLen = Math.floor(Math.random() * (20 - 5 + 1)) + 5;
-    // Array creation to search thru with loop
+    // Gathering Numbers to search thru (Min of 5 elements with max of 20). Determines ele. to put thru array
     let arr = [];
+    // Array creation to search thru with loop
 
     //Result Variables
-    // default of false to fall back on if no numbers match up
     let result = false;
+    // default of false to fall back on if no numbers match up
     let resultText = "";
+    let randoResults = "[";
 
-    //Step 2: Generating random array
+    //Step 2: Generating random array 
     // i stars at 0; I < var searchLen; i + 1
-    // returns a random integer from 0 to 100
-    for (let i = 0; i < searchLen; i++) {
-        arr.push(Math.floor(Math.random() * 101))
+    // returns a random integer from 0 to 100 
+    for (let i = 0; i < searchLen; i++) {                        
+        arr.push(Math.floor(Math.random() * 101))               
     }
     // Step 3: Check if 2 nums add up
     // Outer loop - checks first element
     // inner loop - checks every other element against 1st
     // true if numbers match up
-    for (let i = 0; i < arr.length - 1; i++) {
-        for (let j = i + 1; j < arr.length - 1; j++) {
+    for (let i = 0; i < arr.length - 1; i++) {                  
+        for (let j = i + 1; j < arr.length - 1; j++) {                 
             if (arr[i] + arr[j] == k) {
-                result = true
+                result = true                                  
                 resultText += arr[i] + " + " + arr[j] + "<br>";
             }
         }
+        if (arr.length - 2 != i) {
+            randoResults += arr[i] + ",";
+        } else {
+            randoResults += arr[i];
+        }
     }
-
+    randoResults += "]";
     //Step 4: Result Output
-    document.getElementById("result").innerHTML = arr + "<br>" + result + "<br>" + resultText;
+    document.getElementById("result").innerHTML = "<br>" + result + "<br>" + resultText + "<br>" + randoResults;
 };</script></code></pre>
                                 </div>
                             </div>
