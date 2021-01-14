@@ -8,6 +8,7 @@
     //Result Variables
     let result = false;                                             // default of false to fall back on if no numbers match up
     let resultText = "";
+    let randoResults = "";
 
     //Step 2: Generating random array 
     for (let i = 0; i < searchLen; i++) {                        // i stars at 0; I < var searchLen; i + 1
@@ -21,8 +22,9 @@
                 resultText += arr[i] + " + " + arr[j] + "<br>";
             }
         }
+        randoResults += arr[i] + ",";
     }
 
     //Step 4: Result Output
-    document.getElementById("result").innerHTML = result + "<br>" + resultText;
+    document.getElementById("result").innerHTML = "<br>" + result + "<br>" + resultText;
 };
